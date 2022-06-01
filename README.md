@@ -5,3 +5,4 @@ tools for dev
 
 - tools
   - CopyTextToClipboard
+  - symbol (中文正则处理)
