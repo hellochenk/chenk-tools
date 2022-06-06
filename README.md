@@ -6,3 +6,5 @@ tools for dev
 - tools
   - CopyTextToClipboard
   - symbol (中文正则处理)
+  - vscode
+    - temp.md vscode编辑器常用模版代码   
