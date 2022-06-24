@@ -88,7 +88,7 @@
 			"  empty,",
 			"}",
 			"",
-			"const [pageState, setPageState] = useState<PrizeModalStatus>(",
+			"const [pageState, setPageState] = useState<PageStatusENUM>(",
 			"  PageStatusENUM.default,",
 			")",
 			"",
