@@ -72,3 +72,52 @@
 	}
 }
 ```
+
+# 5 page state (render by loading, success, fail, empty)
+
+```json
+{
+	"Print to console": {
+		"prefix": "page.status",
+		"body": [
+			"enum PageStatusENUM {",
+			"  default,",
+			"  loading,",
+			"  success,",
+			"  fail,",
+			"  empty,",
+			"}",
+			"",
+			"const [pageState, setPageState] = useState<PrizeModalStatus>(",
+			"  PageStatusENUM.default,",
+			")",
+			"",
+			"const renderLoading = () => <div className={styles.loading}>loading</div>",
+			"",
+			"const renderEmpty = () => <div className={styles.empty}>empty</div>",
+			"",
+			"const renderFail = () => <div className={styles.fail}>fail</div>",
+			"",
+			"const renderContent = () => <div className={styles.fail}>content</div>",
+			"",
+			"const renderMain = () => {",
+			"  switch(pageState) {",
+			"    case PageStatusENUM.loading: {",
+			"      return renderLoading()",
+			"    }",
+			"    case PageStatusENUM.success: {",
+			"      return renderContent()",
+			"    }",
+			"    case PageStatusENUM.fail: {",
+			"      return renderFail()",
+			"    }",
+			"    default: {",
+			"      return null",
+			"    }",
+			"  }",
+			"}",
+		],
+		"description": "page.status"
+	}
+}
+```
