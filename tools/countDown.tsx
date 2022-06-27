@@ -1,3 +1,6 @@
+type CountdownPropsType = {
+  stampTimer: number;
+};
 // 跟随系统跳秒 done
 // 纠偏 done
 const useCountdown = (props?: CountdownPropsType) => {
@@ -44,10 +47,10 @@ const useCountdown = (props?: CountdownPropsType) => {
 
       const diff = now - (startCountdownStampRef.current + indexRef.current * ONE_SECEND.current - fixPrefix);
       const nextTask = ONE_SECEND.current - diff;
-      const stamp = totalStampRef.current - durations;
+      const newStamp = totalStampRef.current - durations;
 
-      setStamp(() => stamp);
-      if (stamp > 0) {
+      setStamp(() => newStamp);
+      if (newStamp > 0) {
         setTimeout(() => {
           counting();
         }, nextTask);
