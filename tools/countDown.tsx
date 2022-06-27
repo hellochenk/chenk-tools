@@ -1,8 +1,9 @@
 type CountdownPropsType = {
   stampTimer: number;
+//   是否跟随系统跳秒开关   
 };
-// 跟随系统跳秒 done
-// 纠偏 done
+// 跟随系统跳秒 ok
+// 纠偏 ok
 const useCountdown = (props?: CountdownPropsType) => {
   const [stamp, setStamp] = useState<number>(0);
   const ONE_SECEND = useRef<number>(1000);
@@ -37,6 +38,7 @@ const useCountdown = (props?: CountdownPropsType) => {
       const wishDurations = indexRef.current * ONE_SECEND.current - fixPrefix;
 
       const diffdurations = durations - wishDurations;
+      // @TODO 添加纠偏后的prefix
       if (
         diffdurations > ONE_SECEND.current ||
         diffdurations < -ONE_SECEND.current
@@ -78,14 +80,12 @@ const useCountdown = (props?: CountdownPropsType) => {
   };
 
   useEffect(() => {
-    checkPropsStampAndStartTask();
-  }, [checkPropsStampAndStartTask]);
-
-  useEffect(() => {
-    if (!prevTotalStampRef.current && props?.stampTimer) {
+    if (!prevTotalStampRef.current && props && props.stampTimer > 0) {
       prevTotalStampRef.current = props.stampTimer;
+      checkPropsStampAndStartTask(props.stampTimer)
     }
-  }, [props?.stampTimer]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkPropsStampAndStartTask]);
 
   return {
     stamp,
