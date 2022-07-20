@@ -1,6 +1,8 @@
 # chenk-tools
 tools for dev
 
+[m1兼容安装](https://www.xiang007.com/2021/07/22/Mac-M1%E5%AE%89%E8%A3%85pyenv%E6%95%99%E7%A8%8B/)
+
 当前工具
 
 - tools
